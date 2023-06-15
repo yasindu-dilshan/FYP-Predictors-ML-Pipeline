@@ -30,6 +30,12 @@ jobs:
         run: |
           python sample.py > output.txt
           echo "::set-output name=c::$(cat output.txt)"
+      - name: Save repository as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: repository
+          path: ./
+          echo "::set-output name=c::$(cat output.txt)"
       - name: Upload JSON artifact
         uses: actions/upload-artifact@v2
         with:
