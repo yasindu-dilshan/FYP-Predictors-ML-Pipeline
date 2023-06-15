@@ -23,9 +23,10 @@ jobs:
       - name: Test with pytest
         id: pytest
         run: |
-          python sample.py
-          echo "::set-output name=c::$(python -c 'import sys; sys.stdout.write(str(c))')"
-      - name: Set response
-        id: response
-        run: |
-          echo "::set-output name=response::{\"value\": $(echo ${{ steps.pytest.outputs.c }})}"
+          python sample.py > output.txt
+          echo "::set-output name=c::$(cat output.txt)"
+      - name: Upload output artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: output
+          path: output.txt
