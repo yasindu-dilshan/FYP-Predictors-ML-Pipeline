@@ -35,10 +35,3 @@ jobs:
         with:
           name: repository
           path: ./
-          echo "::set-output name=c::$(cat output.txt)"
-      - name: Upload JSON artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: output
-          path: output.json
-
