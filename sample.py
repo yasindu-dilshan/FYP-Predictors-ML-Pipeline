@@ -1,4 +1,4 @@
 a=1
 b=2
 c=a+b
-print("output - "+c)
+print("output - ",c)
