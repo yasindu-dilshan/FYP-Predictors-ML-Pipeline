@@ -30,3 +30,4 @@ jobs:
         run: |
           python sample.py
           echo "::set-output name=c::$(python -c 'import sys; sys.stdout.write(str(c))')"
+          echo "::set-output name=response::'{\"value\": $(python -c 'import sys; sys.stdout.write(str(c))')}'"
